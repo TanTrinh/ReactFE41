@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class BTCartModal extends Component {
 
     renderGioHang = () => {
-        let {gioHang, xoaGioHang} = this.props;
+        let {gioHang, xoaGioHang, capNhatSoLuongSanPham} = this.props;
 
         return gioHang.map((spGH, index) => {
             return <tr>
@@ -11,9 +11,13 @@ export default class BTCartModal extends Component {
                 <td><img style={{ width: 50, height: 50 }} src={spGH.hinhAnh} alt="123" /></td>
                 <td>{spGH.tenSP}</td>
                 <td>
-                    <button className="btn btn-primary">+</button>
+                    <button onClick={() => {
+                        capNhatSoLuongSanPham(spGH.maSP, 'plus')
+                    }} className="btn btn-primary">+</button>
                     {spGH.soLuong}
-                <button className="btn btn-primary">-</button>
+                    <button onClick={() => {
+                        capNhatSoLuongSanPham(spGH.maSP, 'minus')
+                    }} className="btn btn-primary">-</button>
                 </td>
                 <td>{spGH.donGia}</td>
                 <td>{spGH.soLuong * spGH.donGia}</td>

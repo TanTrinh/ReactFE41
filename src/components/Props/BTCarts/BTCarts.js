@@ -65,8 +65,24 @@ export default class BTCarts extends Component {
         })
     }
 
-    capNhatSoLuongSanPham = (maSP) => {
-        
+    capNhatSoLuongSanPham = (maSP, operator) => {
+        let gioHangCapNhat = [...this.state.gioHang];
+        let index = gioHangCapNhat.findIndex(spGH => spGH.maSP === maSP);
+
+        if (index !== -1) {
+            if (operator === 'plus') {
+                gioHangCapNhat[index].soLuong += 1;
+            } else {
+                if (gioHangCapNhat[index].soLuong <= 1) {
+                    return this.xoaGioHang(maSP);
+                }
+                gioHangCapNhat[index].soLuong -= 1;
+            }
+        }
+
+        this.setState({
+            gioHang: gioHangCapNhat
+        })
     }
 
     render() {
@@ -78,7 +94,7 @@ export default class BTCarts extends Component {
                         <i className="fa fa-cart-arrow-down"></i> ({this.tinhTongSoLuongGioHang()}) Giỏ hàng
                     </span>
                 </div>
-                <BTCartModal gioHang={this.state.gioHang} xoaGioHang={this.xoaGioHang}/>
+                <BTCartModal gioHang={this.state.gioHang} xoaGioHang={this.xoaGioHang} capNhatSoLuongSanPham={this.capNhatSoLuongSanPham}/>
                 <BTCartProductList dataPhone={this.dataPhone} themGioHang={this.themGioHang}/>
             </div>
         )
