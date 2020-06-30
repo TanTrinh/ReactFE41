@@ -8,17 +8,26 @@ import State from './components/State/State';
 import ExState1 from './components/State/ExState1';
 import ExState2 from './components/State/ExState2';
 import RenderWithMap from './components/RenderWithMap/RenderWithMap';
+import DemoProps from './components/Props/DemoProps';
+import Data from '../src/models/data'
+import BT2ProductList from './components/BT2ProductList/BT2ProductList';
+import BT3PhoneList from './components/BT3PhoneList/BT3PhoneList';
 
 function App() {
+  let productList2 = Data;
+
   return (
     <div className="App">
+      <BT3PhoneList/>
+      {/* <BT2ProductList arrProduct={productList2}/> */}
       {/* <BaiTapDanLayout/> */}
       {/* <DataBinding/> */}
       {/* <EventBinding/> */}
       {/* <State/> */}
       {/* <ExState1/> */}
       {/* <ExState2/> */}
-      <RenderWithMap/>
+      {/* <RenderWithMap/> */}
+      {/* <DemoProps/> */}
     </div>
   );
 }

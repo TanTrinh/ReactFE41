@@ -7,9 +7,9 @@ export default class BTSlider extends Component {
                 <div id="demo" className="carousel slide" data-ride="carousel">
                     {/* Indicators */}
                     <ul className="carousel-indicators">
-                        <li data-target="#demo" data-slide-to={0} className />
+                        <li data-target="#demo" data-slide-to={0} className=" " />
                         <li data-target="#demo" data-slide-to={1} className="active" />
-                        <li data-target="#demo" data-slide-to={2} className />
+                        <li data-target="#demo" data-slide-to={2} className=" " />
                     </ul>
                     {/* The slideshow */}
                     <div className="carousel-inner">
