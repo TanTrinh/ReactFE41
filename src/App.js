@@ -12,13 +12,14 @@ import DemoProps from './components/Props/DemoProps';
 import Data from '../src/models/data'
 import BT2ProductList from './components/BT2ProductList/BT2ProductList';
 import BT3PhoneList from './components/BT3PhoneList/BT3PhoneList';
+import BTCarts from './components/Props/BTCarts/BTCarts';
 
 function App() {
   let productList2 = Data;
 
   return (
     <div className="App">
-      <BT3PhoneList/>
+      {/* <BT3PhoneList/> */}
       {/* <BT2ProductList arrProduct={productList2}/> */}
       {/* <BaiTapDanLayout/> */}
       {/* <DataBinding/> */}
@@ -28,6 +29,7 @@ function App() {
       {/* <ExState2/> */}
       {/* <RenderWithMap/> */}
       {/* <DemoProps/> */}
+      <BTCarts/>
     </div>
   );
 }
