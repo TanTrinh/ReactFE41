@@ -4,8 +4,19 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// Thư viện khởi tạo store
+import {createStore} from 'redux';
+// Provider là 1 component kết nối react với redux
+import {Provider} from 'react-redux';
+import rootReducer from './reducer/rootReducer'
+
+
+const store = createStore(rootReducer);
+
 ReactDOM.render(
-    <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
 

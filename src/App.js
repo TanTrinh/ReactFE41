@@ -13,6 +13,7 @@ import Data from '../src/models/data'
 import BT2ProductList from './components/BT2ProductList/BT2ProductList';
 import BT3PhoneList from './components/BT3PhoneList/BT3PhoneList';
 import BTCarts from './components/Props/BTCarts/BTCarts';
+import TodoApp from './TodoApp/TodoApp';
 
 function App() {
   let productList2 = Data;
@@ -29,7 +30,8 @@ function App() {
       {/* <ExState2/> */}
       {/* <RenderWithMap/> */}
       {/* <DemoProps/> */}
-      <BTCarts/>
+      {/* <BTCarts/> */}
+      <TodoApp/>
     </div>
   );
 }
