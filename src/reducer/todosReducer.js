@@ -4,6 +4,7 @@ const initialState = {
         { id: 2, content: 'Làm bài tập', isCompleted: false },
         { id: 3, content: 'Tập thể dục', isCompleted: false },
     ],
+    filter: 'all'
 }
 
 const todosReducer = (state = initialState, action) => {
@@ -29,7 +30,7 @@ const todosReducer = (state = initialState, action) => {
             // console.log(state.todoList);
             // return state;jnhmjnmhhhhhhhhhhhhhhhhhhhhhhhhhjjjmjjjnmhhhhhhhjjmnhhhhhhhjmjmnnjmnnjmjj
 
-            // return về Object mới thì data mới đc cập nhật
+            // return về Object mới thì data mới đc cập nhật (bắt buộc)
             return {...state, todoList}
         }
         case "COMPLETED_TODO": {
@@ -45,6 +46,9 @@ const todosReducer = (state = initialState, action) => {
                 return todo;
             })
             return {...state, todoList}
+        }
+        case "FILTER_TODO": {
+            return {...state, filter: action.status}
         }
         default:
             return state;

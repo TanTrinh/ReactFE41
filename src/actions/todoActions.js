@@ -14,3 +14,11 @@ export const completedTodo = (id) => {
         id,
     }
 }
+
+
+export const filterTodo = (status) => {
+    return {
+        type: "FILTER_TODO",
+        status,
+    }
+}
