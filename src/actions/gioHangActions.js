@@ -4,3 +4,17 @@ export const themSanPhamAction = (sanPham) => {
         sanPham,
     }
 }
+
+export const tangSoLuong = (maSP) => {
+    return {
+        type: "TANG_SO_LUONG",
+        maSP,
+    }
+}
+
+export const giamSoLuong = (maSP) => {
+    return {
+        type: "GIAM_SO_LUONG",
+        maSP,
+    }
+}
