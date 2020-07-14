@@ -1,11 +1,49 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { chonSinhVienAction } from '../actions/sinhVienActions'
 
-export default class TableSinhVien extends Component {
+
+export class TableSinhVien extends Component {
     render() {
-        return (
-            <div>
-                
-            </div>
-        )
+        return <table class="table">
+            <thead>
+                <tr>
+                    <th>Mã sinh viên</th>
+                    <th>Tên sinh viên</th>
+                    <th>Số điện thoại</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {this.props.danhSachSinhVien.map((sv) => (
+                    <tr>
+                        <td>{sv.maSV}</td>
+                        <td>{sv.hoTen}</td>
+                        <td>{sv.email}</td>
+                        <td>{sv.soDT}</td>
+                        <td>
+                            <button className="btn btn-success mr-2" onClick={() => {
+                                this.props.chonSinhVien(sv)
+                            }}>Sửa</button>
+                            <button className="btn btn-success">Xoá</button>
+                        </td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        danhSachSinhVien: state.sinhVienReducer.danhSachSinhVien
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        chonSinhVien: (sinhVien) => dispatch(chonSinhVienAction(sinhVien))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (TableSinhVien)

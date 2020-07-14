@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import {themSinhVienAction} from '../actions/sinhVienActions'
 
-export default class FormThemSinhVien extends Component {
+export class FormThemSinhVien extends Component {
     state = {
         values: {
             maSV: '',
@@ -13,6 +15,17 @@ export default class FormThemSinhVien extends Component {
             hoTen: '',
             email: '',
             soDT: '',
+        }
+    }
+
+    // Khi props sinhVienDangChon thay đổi, sẽ chạy lại componentDidUpdate
+    // trong đây phải kiểm tra sinhVienDangChon có thay đổi hay ko
+    // Nếu thay đổi sẽ setState lại object values bằng sinhVienDangChon mới
+    componentDidUpdate(prevProps) {
+        if(prevProps.sinhVienDangChon.maSV !== this.props.sinhVienDangChon.maSV) {
+            this.setState({
+                values: this.props.sinhVienDangChon
+            })
         }
     }
 
@@ -113,6 +126,9 @@ export default class FormThemSinhVien extends Component {
         }
 
         if (hasError) return;
+
+        // Xử lý gọi action themSinhVien
+        this.props.themSinhVien(this.state.values);
     }
 
     render() {
@@ -202,3 +218,17 @@ export default class FormThemSinhVien extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        sinhVienDangChon: state.sinhVienReducer.sinhVienDangChon,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        themSinhVien: (sinhVien) => dispatch(themSinhVienAction(sinhVien))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (FormThemSinhVien)

@@ -16,6 +16,7 @@ import BTCarts from './components/Props/BTCarts/BTCarts';
 import TodoApp from './TodoApp/TodoApp';
 import CartsRedux from './GioHangRedux/CartsRedux';
 import BaiTapForm from './QuanLySinhVien/BaiTapForm';
+import LifeCycle from './lifecycle';
 
 function App() {
   let productList2 = Data;
@@ -36,6 +37,7 @@ function App() {
       {/* <TodoApp/> */}
       {/* <CartsRedux/> */}
       <BaiTapForm/>
+      {/* <LifeCycle/> */}
     </div>
   );
 }
