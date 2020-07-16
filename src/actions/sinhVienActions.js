@@ -14,10 +14,10 @@ export const suaSinhVienAction = (sinhVien) => {
     }
 }
 
-export const xoaSinhVienAction = (sinhVien) => {
+export const xoaSinhVienAction = (maSV) => {
     return {
         type: XOA_SINH_VIEN,
-        sinhVien,
+        maSV,
     }
 }
 

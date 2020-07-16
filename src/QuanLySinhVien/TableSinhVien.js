@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { chonSinhVienAction } from '../actions/sinhVienActions'
+import { chonSinhVienAction, xoaSinhVienAction } from '../actions/sinhVienActions'
 
 
 export class TableSinhVien extends Component {
@@ -19,13 +19,15 @@ export class TableSinhVien extends Component {
                     <tr>
                         <td>{sv.maSV}</td>
                         <td>{sv.hoTen}</td>
-                        <td>{sv.email}</td>
                         <td>{sv.soDT}</td>
+                        <td>{sv.email}</td>
                         <td>
                             <button className="btn btn-success mr-2" onClick={() => {
                                 this.props.chonSinhVien(sv)
                             }}>Sửa</button>
-                            <button className="btn btn-success">Xoá</button>
+                            <button className="btn btn-success" onClick={() => {
+                                this.props.xoaSinhVien(sv.maSV)
+                            }}>Xoá</button>
                         </td>
                     </tr>
                 ))}
@@ -42,7 +44,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        chonSinhVien: (sinhVien) => dispatch(chonSinhVienAction(sinhVien))
+        chonSinhVien: (sinhVien) => dispatch(chonSinhVienAction(sinhVien)),
+        xoaSinhVien: (maSV) => dispatch(xoaSinhVienAction(maSV))
     }
 }
 

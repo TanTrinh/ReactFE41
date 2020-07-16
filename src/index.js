@@ -5,15 +5,24 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // Thư viện khởi tạo store
-import {createStore} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 // Provider là 1 component kết nối react với redux
 import {Provider} from 'react-redux';
 import rootReducer from './reducer/rootReducer'
+// redux-thunk or we can install redux-saga, redux-observable
+import thunk from "redux-thunk";
 
 
+const enhancer = compose(
+  applyMiddleware(thunk),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+// createStore chỉ nhận 2 tham số
 const store = createStore(
   rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  enhancer,
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 ReactDOM.render(

@@ -17,6 +17,7 @@ import TodoApp from './TodoApp/TodoApp';
 import CartsRedux from './GioHangRedux/CartsRedux';
 import BaiTapForm from './QuanLySinhVien/BaiTapForm';
 import LifeCycle from './lifecycle';
+import Elearning from './Elearning/Elearning';
 
 function App() {
   let productList2 = Data;
@@ -36,8 +37,9 @@ function App() {
       {/* <BTCarts/> */}
       {/* <TodoApp/> */}
       {/* <CartsRedux/> */}
-      <BaiTapForm/>
+      {/* <BaiTapForm/> */}
       {/* <LifeCycle/> */}
+      <Elearning/>
     </div>
   );
 }
